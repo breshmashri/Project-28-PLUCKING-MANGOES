@@ -1,8 +1,9 @@
-
 const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
+const Constraint = Matter.Constraint;
+
 var world, engine;
 var boy;
 var stoneObject, treeObject, groundObject, launcherObject;
@@ -37,8 +38,6 @@ function setup(){
 	engine = Engine.create();
 	world = engine.world;
 
-	//Create the Bodies Here.
-
 
 	Engine.run(engine);
   
@@ -50,7 +49,6 @@ function draw(){
   
   textSize(25);
   text("Press Space to get a second Chance to Play!!", 50, 50);
-  image(boy, 200, 340, 200, 300);
 
   treeObject.display();
   stoneObject.display();

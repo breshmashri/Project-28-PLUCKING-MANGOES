@@ -16,6 +16,9 @@ function preload(){
 function setup(){
 	createCanvas(1300, 600);
 
+  engine = Engine.create();
+  world = engine.world;
+  
   stoneObject = new Stone(235, 420, 30);
 
   mango1 = new Mango(1100, 100, 30);
@@ -35,9 +38,6 @@ function setup(){
 	groundObject = new Ground(width/2, 600, width, 20);
 	launcherObject = new Launcher(stoneObject.body,{x:235, y:420});
 
-	engine = Engine.create();
-	world = engine.world;
-
 
 	Engine.run(engine);
   
@@ -45,15 +45,11 @@ function setup(){
 
 function draw(){
   background(230);
-  
   textSize(25);
   text("Press Space to get a second Chance to Play!!", 50, 50);
-
-  treeObject.display();
+  
   stoneObject.display();
-  groundObject.display();
-  launcherObject.display();
-
+  
   mango1.display();
   mango2.display();
   mango3.display();
@@ -65,6 +61,10 @@ function draw(){
   mango10.display();
   mango11.display();
   mango12.display();
+
+  treeObject.display();
+  groundObject.display();
+  launcherObject.display();
 
   detectollision(stoneObject, mango1);
   detectollision(stoneObject, mango2);

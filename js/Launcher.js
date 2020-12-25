@@ -1,11 +1,13 @@
 class Launcher{
-	constructor(body){
+	constructor(body, pointB){
 		var options = { 
 			bodyA:body,
+			pointB:pointB,
 			stiffness:0.004, 
 			length:1	
 		}
 		this.bodyA = body;
+		this.pointB = pointB;
 		this.launcher = Constraint.create(options)
 		World.add(world, this.launcher)
 	}

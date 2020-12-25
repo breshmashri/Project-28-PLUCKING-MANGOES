@@ -8,19 +8,14 @@ class Mango{
 		this.x = x;
 		this.y = y;
 		this.r = r;
-		this.image = loadImage("images/mango.png");
+		this.image = loadImage("Plucking mangoes/mango.png");
 		this.body = Bodies.circle(this.x, this.y, this.r, options);
 		World.add(world, this.body);
 	}
 	display(){
-		var mangoPos = this.body.position;	
-		push()
-		translate(mangoPos.x, mangoPos.y);
-		image(this.image, 0, 0, this.width, this.height);
-		rotate(this.body.angle);
-		fill(255,0,255);
+		var mangoPos = this.body.position;
+		ellipse(mangoPos.x, mangoPos.y, this.r);
 		imageMode(CENTER);
-		ellipseMode(CENTER);
-		pop()
+		image(this.image, 0, 0, this.width, this.height);
     }
 }

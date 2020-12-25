@@ -10,12 +10,13 @@ class Stone{
 		this.y = y;
 		this.r = r;
 		this.image = loadImage("Plucking mangoes/stone.png");
-		this.body = Bodies.circle(this.x, this.y, this.r, options)
+		this.body = Bodies.circle(this.x, this.y, this.r, options);
 		World.add(world, this.body);
 	}
 	display(){
-		var stonepos = this.body.position;		
-		ellipse(stonepos.x, stonepos.y, this.r);
+		var stonePos = this.body.position;		
+		ellipse(stonePos.x, stonePos.y, this.r);
+		imageMode(CENTER);
 		image(this.image, 0, 0, this.width, this.height);
 		 
 	} 

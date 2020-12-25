@@ -15,12 +15,8 @@ class Stone{
 	}
 	display(){
 		var stonepos = this.body.position;		
-		push()
-		translate(stonepos.x, stonepos.y);
-	    fill(255,0,255);
-        imageMode(CENTER);
-		ellipseMode(RADIUS);
-		image()
-		pop()
-	}
+		ellipse(stonepos.x, stonepos.y, this.r);
+		image(this.image, 0, 0, this.width, this.height);
+		 
+	} 
 }

@@ -18,22 +18,22 @@ function setup(){
 
   stoneObject = new Stone(235, 420, 30);
 
-  mango1 = new Mango(1100,100,30);
-  mango2 = new Mango(1170,130,30);
-	mango3 = new Mango(1010,140,30);
-	mango4 = new Mango(1000,70,30);
-	mango5 = new Mango(1100,70,30);
-	mango6 = new Mango(1000,230,30);
-	mango7 = new Mango(900,230,40);
-	mango8 = new Mango(1140,150,40);
-	mango9 = new Mango(1100,230,40);
-	mango10 = new Mango(1200,200,40);
-	mango11 = new Mango(1120,50,40);
-  mango12 = new Mango(900,160,40); 
+  mango1 = new Mango(1100, 100, 30);
+  mango2 = new Mango(1170, 130, 30);
+	mango3 = new Mango(1010, 140, 30);
+	mango4 = new Mango(1000, 70, 30);
+	mango5 = new Mango(1100, 70, 30);
+	mango6 = new Mango(1000, 230, 30);
+	mango7 = new Mango(900, 230, 40);
+	mango8 = new Mango(1140, 150, 40);
+	mango9 = new Mango(1100, 230, 40);
+	mango10 = new Mango(1200, 200, 40);
+	mango11 = new Mango(1120, 50, 40);
+  mango12 = new Mango(900, 160, 40); 
   
-  treeObj = new Tree(1050,580);
-	groundObject = new Ground(width/2,600,width,20);
-	launcherObject = new Launcher(stoneObject.body,{x:235,y:420});
+  treeObject = new Tree(1050, 580);
+	groundObject = new Ground(width/2, 600, width, 20);
+	launcherObject = new Launcher(stoneObject.body,{x:235, y:420});
 
 	engine = Engine.create();
 	world = engine.world;
@@ -66,22 +66,22 @@ function draw(){
   mango11.display();
   mango12.display();
 
-  detectollision(stoneObject,mango1);
-  detectollision(stoneObject,mango2);
-  detectollision(stoneObject,mango3);
-  detectollision(stoneObject,mango4);
-  detectollision(stoneObject,mango5);
-  detectollision(stoneObject,mango6);
-  detectollision(stoneObject,mango7);
-  detectollision(stoneObject,mango8);
-  detectollision(stoneObject,mango9);
-  detectollision(stoneObject,mango10);
-  detectollision(stoneObject,mango11);
-  detectollision(stoneObject,mango12);
+  detectollision(stoneObject, mango1);
+  detectollision(stoneObject, mango2);
+  detectollision(stoneObject, mango3);
+  detectollision(stoneObject, mango4);
+  detectollision(stoneObject, mango5);
+  detectollision(stoneObject, mango6);
+  detectollision(stoneObject, mango7);
+  detectollision(stoneObject, mango8);
+  detectollision(stoneObject, mango9);
+  detectollision(stoneObject, mango10);
+  detectollision(stoneObject, mango11);
+  detectollision(stoneObject, mango12);
 }
 
 function mouseDragged(){
-	Matter.Body.setPosition(stoneObject.body, {x:mouseX, y:mouseY}) 
+	Matter.Body.setPosition(stoneObject.body, {x:mouseX, y:mouseY});  
 }
 
 function mouseReleased(){
@@ -90,7 +90,7 @@ function mouseReleased(){
 
 function keyPressed(){
 	if (keyCode === 32) {
-    Matter.Body.setPosition(stoneObject.body, {x:235, y:420}) 
+    Matter.Body.setPosition(stoneObject.body, {x:235, y:420}); 
 	  launcherObject.attach(stoneObject.body);
 	}
 }
@@ -101,6 +101,6 @@ function detectollision(lstone, lmango){
 
   var distance = dist(stoneBodyPosition.x, stoneBodyPosition.y, mangoBodyPosition.x, mangoBodyPosition.y);
   	if(distance<=lmango.r+lstone.r){
-  	  Matter.Body.setStatic(lmango.body,false);
+  	  Matter.Body.setStatic(lmango.body, false);
     }
   }

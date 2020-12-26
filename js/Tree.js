@@ -5,14 +5,13 @@ class Tree{
 		}
         this.x = x;
         this.y = y;
-        this.body = Bodies.rectangle(this.x, this.y, options);
+        this.body = Bodies.rectangle(this.x, this.y, 550, 550, options);
         this.image = loadImage("Plucking mangoes/tree.png");
         World.add(world, this.body);
     }
     display(){
-		var treePos = this.body.position;		
-        ellipse(treePos.x, treePos.y);
+        var treePos = this.body.position;	
         imageMode(CENTER);
-		image(this.image, 0, 0, this.width, this.height);
+		image(this.image, treePos.x, treePos.y, 550, 550);
 	} 
 }

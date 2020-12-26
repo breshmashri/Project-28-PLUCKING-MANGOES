@@ -5,12 +5,12 @@ const Body = Matter.Body;
 const Constraint = Matter.Constraint;
 
 var world, engine;
-var boy;
+var boy, boyImg;
 var stoneObject, treeObject, groundObject, launcherObject;
 var mango1, mango2, mango3, mango4,mango5, mango6, mango7, mango8, mango9, mango10, mango11, mango12;
 
 function preload(){
-	boy = loadImage("Plucking mangoes/boy.png");
+	boyImg = loadImage("Plucking mangoes/boy.png");
 }
 
 function setup(){
@@ -18,9 +18,16 @@ function setup(){
 
   engine = Engine.create();
   world = engine.world;
-  
-  stoneObject = new Stone(235, 420, 30);
 
+  boy = createSprite(290, 480, 200, 300);
+  boy.addImage(boyImg);
+  boy.scale = 0.1;
+
+  stoneObject = new Stone(235, 420, 30);
+  treeObject = new Tree(1000, 300);
+	groundObject = new Ground(width/2, 600, width, 20);
+  launcherObject = new Launcher(stoneObject.body,{x:235, y:420});
+  
   mango1 = new Mango(1100, 100, 30);
   mango2 = new Mango(1170, 130, 30);
 	mango3 = new Mango(1010, 140, 30);
@@ -33,10 +40,6 @@ function setup(){
 	mango10 = new Mango(1200, 200, 40);
 	mango11 = new Mango(1120, 50, 40);
   mango12 = new Mango(900, 160, 40); 
-  
-  treeObject = new Tree(1050, 580);
-	groundObject = new Ground(width/2, 600, width, 20);
-	launcherObject = new Launcher(stoneObject.body,{x:235, y:420});
 
 
 	Engine.run(engine);
@@ -48,8 +51,13 @@ function draw(){
   textSize(25);
   text("Press Space to get a second Chance to Play!!", 50, 50);
   
-  stoneObject.display();
   
+  boy.display();
+  stoneObject.display();
+  treeObject.display();
+  groundObject.display();
+  launcherObject.display();
+
   mango1.display();
   mango2.display();
   mango3.display();
@@ -61,10 +69,6 @@ function draw(){
   mango10.display();
   mango11.display();
   mango12.display();
-
-  treeObject.display();
-  groundObject.display();
-  launcherObject.display();
 
   detectollision(stoneObject, mango1);
   detectollision(stoneObject, mango2);

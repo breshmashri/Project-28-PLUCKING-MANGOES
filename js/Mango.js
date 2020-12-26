@@ -2,8 +2,8 @@ class Mango{
 	constructor(x, y, r){
 		var options = {
 			isStatic:true,
-			restitution :0,
-            friction :1,
+			restitution:0,
+            friction:1,
 		}
 		this.x = x;
 		this.y = y;
@@ -14,8 +14,9 @@ class Mango{
 	}
 	display(){
 		var mangoPos = this.body.position;
-		ellipse(mangoPos.x, mangoPos.y, this.r);
 		imageMode(CENTER);
-		image(this.image, 0, 0, this.width, this.height);
-    }
+		ellipseMode(CENTER);
+		image(this.image, mangoPos.x, mangoPos.y, this.r*2, this.r*2)
+
+ }
 }
